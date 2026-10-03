@@ -1,0 +1,67 @@
+{
+  "name": "sanity-plugin-plausible-insights",
+  "version": "0.0.1",
+  "description": "Brings your Plausible Analytics data to where your content lives. Every document gets a pageviews badge and a Stats view with visitors, pageviews and a trend line for the page it powers, so editors can see what's working without switching tabs.",
+  "keywords": [
+    "sanity",
+    "sanity-plugin"
+  ],
+  "license": "MIT",
+  "author": "Stijn E <stijn.elskens@gmail.com>",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": "./dist/index.js",
+      "./package.json": "./package.json"
+    }
+  },
+  "scripts": {
+    "build": "plugin-kit verify-package --silent && pkg-utils build --strict --check --clean",
+    "format": "oxfmt",
+    "link-watch": "plugin-kit link-watch",
+    "lint": "oxlint",
+    "prepublishOnly": "npm run build",
+    "typecheck": "tsc",
+    "watch": "pkg-utils watch --strict"
+  },
+  "dependencies": {
+    "@sanity/ui": "^4.3.0"
+  },
+  "devDependencies": {
+    "@sanity/pkg-utils": "^13.0.4",
+    "@sanity/plugin-kit": "^10.0.11",
+    "@types/react": "^19.3.0",
+    "oxfmt": "^0.71.0",
+    "oxlint": "^1.86.0",
+    "oxlint-tsgolint": "^7.0.2003",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "sanity": "^6.17.0",
+    "styled-components": "^6.5.3",
+    "typescript": "^6.0.3"
+  },
+  "peerDependencies": {
+    "react": "^19",
+    "sanity": "^5 || ^6.0.0-0"
+  },
+  "engines": {
+    "node": ">=20.19 <22 || >=22.12"
+  },
+  "sanityPlugin": {
+    "verifyPackage": {
+      "tsconfig": false
+    }
+  }
+}
